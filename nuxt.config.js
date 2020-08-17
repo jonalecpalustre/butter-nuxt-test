@@ -45,5 +45,22 @@ export default {
      */
     extend(config, ctx) {}
   },
-  target: 'static'
+  target: 'static',
+  generate: {
+    routes() {
+      return butter.post
+
+        .list({
+          page: 1,
+
+          page_size: 10
+        })
+
+        .then((res) => {
+          return res.data.data.map((blog) => {
+            return `/blog/${blog.slug}`
+          })
+        })
+    }
+  }
 }
