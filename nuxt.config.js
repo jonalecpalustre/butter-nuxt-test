@@ -1,3 +1,5 @@
+import { butter } from '~/plugins/buttercms'
+
 export default {
   mode: 'universal',
   /*
